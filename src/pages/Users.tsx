@@ -20,7 +20,7 @@ const Users = () => {
   useEffect(() => {
     const apiUrl = 'http://78.155.194.209:3060/users';
     axios.get(apiUrl).then((resp) => {
-      const allPersons = resp.users;
+      const allPersons = resp.data.users;
       console.log('allPersons', allPersons)
       setAppState(allPersons);
     });
