@@ -22,7 +22,7 @@ const Users = () => {
 
   const columns: ColumnsType<any> = [
     {
-      title: 'Имя',
+      title: 'ФИО',
       dataIndex: 'name',
       key: 'name',
       render: (text) => <Text>{text}</Text>,
