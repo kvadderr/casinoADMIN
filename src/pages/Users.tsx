@@ -20,27 +20,13 @@ const Users = () => {
   useEffect(() => {
     const apiUrl = 'http://78.155.194.209:3060/users';
     axios.get(apiUrl).then((resp) => {
-      const allPersons = resp.data;
-      console.log(allPersons)
+      const allPersons = resp.users;
+      console.log('allPersons', allPersons)
       setAppState(allPersons);
     });
   }, []);
 
 
-  const openGame = (id: number) => {
-    setLoading(true);
-    const apiUrl = 'http://78.155.194.209:9000/provider/openGame?idGame=' + id;
-    axios.get(apiUrl).then((resp) => {
-      const url = resp.data?.content?.game?.url;
-      if (url) {
-        window.open(url, '_blank'); // Открываем URL в новом окне
-      }
-      if (resp.data?.status === 'fail') {
-        openNotification()
-      }
-      setLoading(false)
-    });
-  }
 
   const columns: ColumnsType<any> = [
     {
