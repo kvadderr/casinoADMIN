@@ -1,4 +1,4 @@
-import { Button, Tag, Typography, Table, Avatar, notification } from 'antd'
+import { Button, Tag, Typography, Table, Avatar, App } from 'antd'
 import { useEffect, useState } from 'react';
 const { Text } = Typography;
 import type { ColumnsType } from 'antd/es/table';
@@ -8,10 +8,9 @@ import axios from 'axios'
 const Games = () => {
   const [appState, setAppState] = useState();
   const [loading, setLoading] = useState(false);
-  const [api] = notification.useNotification();
-
+  const { notification } = App.useApp();
   const openNotification = () => {
-    api.info({
+    notification.info({
       message: `Игра недоступна`,
       placement: 'topRight',
     });

@@ -1,4 +1,4 @@
-import { Button, Tag, Typography, Table, Avatar, notification } from 'antd'
+import { Button, Tag, Typography, Table, App, notification } from 'antd'
 import { useEffect, useState } from 'react';
 const { Text } = Typography;
 import type { ColumnsType } from 'antd/es/table';
@@ -8,14 +8,6 @@ import axios from 'axios'
 const Users = () => {
   const [appState, setAppState] = useState();
   const [loading, setLoading] = useState(false);
-  const [api, contextHolder] = notification.useNotification();
-
-  const openNotification = () => {
-    api.info({
-      message: `Игра недоступна`,
-      placement: 'topRight',
-    });
-  };
 
   useEffect(() => {
     const apiUrl = 'http://78.155.194.209:3060/users';
@@ -68,7 +60,9 @@ const Users = () => {
   ];
 
   return (
-    <Table columns={columns} dataSource={appState} rowKey={meditation => meditation.id} />
+    <>
+      <Table columns={columns} dataSource={appState} rowKey={meditation => meditation.id} />
+    </>
   )
 }
 
